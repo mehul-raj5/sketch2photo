@@ -1,0 +1,7 @@
+# 03_evaluation — installed on top of 01_ours/requirements.txt in envs/server (2026-09-22).
+pytorch-fid==0.3.0           # FID exactly as DECP's calculate.py
+scipy==1.17.1                # pytorch-fid 0.3.0 calls sqrtm(..., disp=False), removed in SciPy 1.18 (F45)
+scikit-image==0.26.0         # SSIM / PSNR (supplementary)
+lpips==0.1.4                 # = DECP's bundled copy (v0.1 head weights identical by sha256)
+opencv-python-headless==5.0.0.93   # lpips.load_image, DECP MTCNN align_trans
+# Optional: GNU Octave to run the original FSIM code in reference/

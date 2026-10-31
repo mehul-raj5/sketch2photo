@@ -1,0 +1,80 @@
+LICENCE AND COPYRIGHT NOTICE — 1_codebook/ (and 4_evaluation/decp/)
+
+1. DECP
+   The code in this folder (train_codebook.py, utils/) and in 4_evaluation/decp/evaluate/ is the official code of
+     X. Zhu et al., "Fine-detailed Facial Sketch-to-Photo Synthesis with Detail-enhanced Codebook Priors",
+     IEEE Transactions on Circuits and Systems for Video Technology, 2025.
+     Source: https://github.com/Gardenia-chen/DECP (commit 3e10bc86fa39, 2025-06-03)
+   Copyright (c) the DECP authors. All rights reserved.
+   The DECP repository does not publish a licence (checked 2026-10-31). The code is included here unchanged except for the
+   edits listed in CHANGES.md (paths, device selection, resume, one file-lookup fix), with attribution, solely so that the
+   results of our paper can be reproduced. No licence to the DECP code is granted by this repository; all rights remain with
+   the DECP authors. Please cite their paper when you use it. The DECP codebook weights in the companion Drive folder
+   (WildSketch, CUFSF) are the DECP authors' official releases and are covered by the same notice.
+
+2. pytorch-CycleGAN-and-pix2pix
+   DECP states that its code builds heavily on https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+   (network definitions, schedulers, data loading). Those parts are covered by the following licence:
+
+   Copyright (c) 2017, Jun-Yan Zhu and Taesung Park
+   All rights reserved.
+   
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+   
+   * Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer.
+   
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+   
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   
+   
+   --------------------------- LICENSE FOR pix2pix --------------------------------
+   BSD License
+   
+   For pix2pix software
+   Copyright (c) 2016, Phillip Isola and Jun-Yan Zhu
+   All rights reserved.
+   
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+   
+   * Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer.
+   
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+   
+   ----------------------------- LICENSE FOR DCGAN --------------------------------
+   BSD License
+   
+   For dcgan.torch software
+   
+   Copyright (c) 2015, Facebook, Inc. All rights reserved.
+   
+   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+   
+   Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+   
+   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+   
+   Neither the name Facebook nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+   
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+3. LPIPS
+   4_evaluation/decp/evaluate/ contains a copy of LPIPS (Zhang et al., CVPR 2018); its BSD licence is in
+   4_evaluation/decp/evaluate/LICENSE.

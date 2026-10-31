@@ -1,0 +1,15 @@
+data/*
+!data/README.md
+checkpoints/*
+!checkpoints/README.md
+outputs/*
+!outputs/.gitkeep
+4_evaluation/results/
+4_evaluation/work/
+4_evaluation/RUNS*.md
+__pycache__/
+*.pyc
+*.pt
+*.pth
+!4_evaluation/decp/evaluate/lpips/weights/**/*.pth
+venv/
