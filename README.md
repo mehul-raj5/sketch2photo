@@ -1,4 +1,4 @@
-## Sketch2Photo-CodebookDiffusion
+## sketch2photo
 
 PyTorch code for "**Multi-Modal conditioning for Sketch-to-Photo Synthesis using ControlNet and Stable Diffusion**".
 
