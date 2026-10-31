@@ -1,7 +1,7 @@
 #!/bin/bash
-# Link the downloaded Google Drive folder into the repository layout.
-#   bash scripts/link_drive.sh <path/to/Sketch2Photo-CodebookDiffusion_drive>
-# Optional check first:  (cd <drive folder> && sha256sum -c --quiet SHA256SUMS)
+# Link the downloaded Google Drive folders (checkpoints/, codebooks/, frozen_models/, tone_stats/ in one directory) into the repository.
+#   bash scripts/link_drive.sh <drive_dir>
+# Each folder must keep its internal structure (e.g. checkpoints/<dataset>/step_0014000/).
 set -euo pipefail
 DRIVE=$(cd "${1:?path to the Drive folder}" && pwd)
 ROOT=$(cd "$(dirname "$0")/.." && pwd)

@@ -50,9 +50,23 @@ python 0_data_preparation/make_splits.py --dataset fs2k       --n-val 106 --seed
 
 ### Prepare pre-trained models, codebooks and checkpoints
 
-Download the folder from [Google Drive — link to be added](https://drive.google.com/) and link it into the repository:
+Download the four Google Drive folders into one directory (keep the folder names and everything inside them unchanged):
+
+| Folder | Google Drive |
+|---|---|
+| `checkpoints/` | https://drive.google.com/drive/folders/1DErzfCIGbR7OujcZ2tMC9Z0SaA9VPuy8?usp=sharing |
+| `codebooks/` | https://drive.google.com/drive/folders/1oOoSjdz2KZrqLYkKto5TnxtSmLJtQlbl?usp=sharing |
+| `frozen_models/` | https://drive.google.com/drive/folders/1pHmGufdp-M1LaQD75f_zSyOqFV92FZjt?usp=sharing |
+| `tone_stats/` | https://drive.google.com/drive/folders/1JX9S5UUuc-hOlO3pfsELZ23xS8tNSrni?usp=sharing |
+
 ```
-bash scripts/link_drive.sh <path/to/Sketch2Photo-CodebookDiffusion_drive>
+<drive_dir>/
+├── checkpoints/   codebooks/   frozen_models/   tone_stats/
+```
+For example `pip install gdown` and `gdown --folder <link>` once per folder (Drive zips large folders downloaded from the browser —
+unzip them first). Then link them into the repository:
+```
+bash scripts/link_drive.sh <drive_dir>
 ```
 | Drive folder | Linked to | Contents |
 |---|---|---|
