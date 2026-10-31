@@ -19,12 +19,13 @@ PY=${PYTHON:-python}
 export HF_HOME=${HF_HOME:-$ROOT/data/pretrained/hf_cache} TORCH_HOME=${TORCH_HOME:-$ROOT/data/pretrained/torch_cache}
 export HF_HUB_OFFLINE=${HF_HUB_OFFLINE:-1}
 
-# per dataset: fusion weight a (chosen on val), scoring size, gray output, prompt colour word
+# per dataset: fusion weight a (chosen on val), scoring size, gray output, prompt colour word, device of the x̂ pass
+# (the reported WildSketch x̂ was computed on the CPU; CPU and GPU give slightly different x̂)
 case $DS in
-  wildsketch) A=0.5;  SIZE=256x256; GRAY="";       COLOUR="colour" ;;
-  fs2k)       A=0.25; SIZE=256x256; GRAY="";       COLOUR="colour" ;;
-  cuhk)       A=0.0;  SIZE=200x250; GRAY="";       COLOUR="colour" ;;
-  cufsf)      A=0.0;  SIZE=200x250; GRAY="--gray"; COLOUR="black and white" ;;
+  wildsketch) A=0.5;  SIZE=256x256; GRAY="";       COLOUR="colour";          XDEV=cpu ;;
+  fs2k)       A=0.25; SIZE=256x256; GRAY="";       COLOUR="colour";          XDEV=$DEV ;;
+  cuhk)       A=0.0;  SIZE=200x250; GRAY="";       COLOUR="colour";          XDEV=$DEV ;;
+  cufsf)      A=0.0;  SIZE=200x250; GRAY="--gray"; COLOUR="black and white"; XDEV=$DEV ;;
   *) echo "unknown dataset $DS"; exit 1 ;;
 esac
 PROMPT="RAW photo, photorealistic $COLOUR portrait photograph of a real person, head and shoulders, 85mm portrait lens, f/2.8, sharp focus on the eyes, natural skin texture, visible skin pores, high dynamic range, highly detailed, dslr, 8k uhd"
@@ -40,7 +41,7 @@ $PY "$ROOT/3_inference/generate.py" --checkpoint "$CKPT" --split $SPLIT $FINAL -
 # 2. raw codebook estimate x̂ (needed only when a > 0)
 XARG=""
 if [ "$A" != "0.0" ]; then
-  $PY "$ROOT/3_inference/generate.py" --checkpoint "$CKPT" --xhat_only --split $SPLIT $FINAL --run_id xhat_raw --device "$DEV" --overwrite \
+  $PY "$ROOT/3_inference/generate.py" --checkpoint "$CKPT" --xhat_only --split $SPLIT $FINAL --run_id xhat_raw --device "$XDEV" --overwrite \
     --set tone.enabled=false
   XARG="--xhat $OUT/xhat_raw"
 fi
